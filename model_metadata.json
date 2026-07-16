@@ -1,0 +1,10 @@
+{
+  "model_name": "LightGBM_calibrated",
+  "chosen_threshold": 0.13073578529026625,
+  "cv_recall_mean": 0.7940373203671257,
+  "cv_recall_std": 0.004360365061120154,
+  "test_recall": 0.8002546329042297,
+  "test_precision": 0.3044507830579624,
+  "test_auc": 0.8275182873218373,
+  "brier_score": 0.09746728883666929
+}
