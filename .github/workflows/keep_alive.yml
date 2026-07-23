@@ -1,0 +1,30 @@
+name: Keep Streamlit App Awake
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Install dependencies
+        run: |
+          pip install selenium webdriver-manager
+
+      - name: Run keep-alive script
+        env:
+          STREAMLIT_APP_URL: "https://diabetes-risk-screener-isp9hnylrpdggpwdedxqfu.streamlit.app/"
+        run: python keep_alive.py
